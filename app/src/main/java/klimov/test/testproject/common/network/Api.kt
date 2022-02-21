@@ -15,6 +15,7 @@ object Api {
     private const val BASE_URL = "https://the-one-api.dev/v2/"
     private const val CONNECTION_TIMEOUT = 60L
 
+
     val mainApi: MainApi by lazy {
         retrofit.create(MainApi::class.java)
     }
