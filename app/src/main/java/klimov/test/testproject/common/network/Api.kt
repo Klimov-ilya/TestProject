@@ -1,48 +1,48 @@
 package klimov.test.testproject.common.network
 
 import klimov.test.testproject.BuildConfig
-import klimov.test.testproject.main.api.MainApi
-import okhttp3.Interceptor
+import klimov.test.testproject.recipe.api.RecipeApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.lang.IllegalStateException
 import java.util.concurrent.TimeUnit
 
 object Api {
-    private const val BASE_URL = "https://the-one-api.dev/v2/"
-    private const val CONNECTION_TIMEOUT = 60L
+    lateinit var recipeApi: RecipeApi
 
-
-    val mainApi: MainApi by lazy {
-        retrofit.create(MainApi::class.java)
+    fun init() {
+        if (retrofit == null) {
+            synchronized(Retrofit::class.java) {
+                retrofit = Retrofit.Builder()
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .client(getOkHttpClient())
+                    .baseUrl(BASE_URL)
+                    .build()
+            }
+        }
+        if (retrofit == null) {
+            throw IllegalStateException("Retrofit is null")
+        }
+        recipeApi = retrofit!!.create(RecipeApi::class.java)
     }
 
-    private val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
-        .client(getOkHttpClient())
-        .baseUrl(BASE_URL)
-        .build()
+    private const val BASE_URL = "https://api.edamam.com/"
+    private const val CONNECTION_TIMEOUT = 20L
+
+    private var retrofit: Retrofit? = null
 
     private fun getOkHttpClient() = OkHttpClient.Builder()
         .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
         .readTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(getHttpLoggingInterceptor())
-        .addInterceptor(getAuthInterceptor())
         .build()
 
     private fun getHttpLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG) BODY else NONE
-    }
-
-    private fun getAuthInterceptor() = Interceptor { chain ->
-        val request = chain.request()
-            .newBuilder()
-            .addHeader("Authorization", "Bearer 6kkwE_vi59hSjoDd3nSB")
-            .build()
-        chain.proceed(request)
     }
 
 }

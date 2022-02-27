@@ -3,8 +3,13 @@ package klimov.test.testproject.common.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
+import org.koin.android.ext.android.inject
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
+    protected val router: Router by inject()
+    protected val navigationHolder: NavigatorHolder by inject()
 
     abstract fun getLayoutBinding() : T
 
