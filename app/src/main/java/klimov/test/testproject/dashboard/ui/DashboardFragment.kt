@@ -2,7 +2,7 @@ package klimov.test.testproject.dashboard.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import klimov.test.testproject.common.screens.Screens
+import klimov.test.testproject.common.navigation.screens.Screens
 import klimov.test.testproject.common.ui.BaseFragment
 import klimov.test.testproject.databinding.FragmentDashboardBinding
 

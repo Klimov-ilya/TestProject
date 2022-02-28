@@ -3,7 +3,7 @@ package klimov.test.testproject.recipe.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import klimov.test.testproject.common.screens.Screens
+import klimov.test.testproject.common.navigation.screens.Screens
 import klimov.test.testproject.common.ui.BaseFragment
 import klimov.test.testproject.databinding.FragmentRecipeBuildBinding
 import klimov.test.testproject.recipe.entity.DietFormatter
@@ -35,8 +35,7 @@ class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
             onTextChanged = { text, _, _, _ -> recipeBuildViewModel.setQuery(text.toString()) }
         )
         binding.findRecipeB.setOnClickListener {
-            val recipeBuildEntity = recipeBuildViewModel.getRecipeBuildEntity()
-            navigateTo(Screens.RecipeScreen(recipeBuildEntity))
+            recipeBuildViewModel.navigateToRecipe()
         }
     }
 

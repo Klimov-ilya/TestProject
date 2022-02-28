@@ -12,7 +12,7 @@ import klimov.test.testproject.recipe.repository.RecipeRepository
 import kotlinx.coroutines.launch
 
 class RecipeViewModel(
-    private val recipeRepository: RecipeRepository
+    private val recipeRepository: RecipeRepository,
 ) : BaseViewModel() {
     val apiStatus: LiveData<ApiStatus<List<Recipe>>> get() = _apiStatus
 

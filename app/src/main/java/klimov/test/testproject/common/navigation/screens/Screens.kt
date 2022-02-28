@@ -1,4 +1,4 @@
-package klimov.test.testproject.common.screens
+package klimov.test.testproject.common.navigation.screens
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import klimov.test.testproject.dashboard.ui.DashboardFragment

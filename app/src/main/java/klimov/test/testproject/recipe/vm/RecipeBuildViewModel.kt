@@ -2,6 +2,7 @@ package klimov.test.testproject.recipe.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import klimov.test.testproject.common.navigation.screens.Screens
 import klimov.test.testproject.common.vm.BaseViewModel
 import klimov.test.testproject.recipe.entity.Diet
 import klimov.test.testproject.recipe.entity.DietFormatter
@@ -9,8 +10,11 @@ import klimov.test.testproject.recipe.entity.MealFormatter
 import klimov.test.testproject.recipe.entity.MealType
 import klimov.test.testproject.recipe.entity.RecipeBuildEntity
 import klimov.test.testproject.recipe.entity.RecipeBuildType
+import klimov.test.testproject.recipe.navigation.RecipeCoordinator
 
-class RecipeBuildViewModel : BaseViewModel() {
+class RecipeBuildViewModel(
+    private val coordinator: RecipeCoordinator
+) : BaseViewModel() {
     private val _queryLiveData = MutableLiveData<String>()
     private val _mealFormatterList = MutableLiveData(
         MealType.values().map { MealFormatter(it, false) }
@@ -44,7 +48,19 @@ class RecipeBuildViewModel : BaseViewModel() {
         _dietFormatterList.value = currentList
     }
 
-    fun getRecipeBuildEntity(): RecipeBuildEntity {
+    fun setQuery(query: String) {
+        _queryLiveData.value = query
+    }
+
+    fun navigateToRecipe() {
+        val recipeBuildEntity = getRecipeBuildEntity()
+        coordinator.navigateTo(Screens.RecipeScreen(recipeBuildEntity))
+    }
+
+    override fun handleError(throwable: Throwable) {
+    }
+
+    private fun getRecipeBuildEntity(): RecipeBuildEntity {
         val query = _queryLiveData.value.orEmpty()
         val mealType = _mealFormatterList.value?.filter { it.isChecked }?.map { it.type.value }
         val diets = _dietFormatterList.value?.filter { it.isChecked }?.map { it.type.value }
@@ -55,10 +71,4 @@ class RecipeBuildViewModel : BaseViewModel() {
         return RecipeBuildEntity(mealType = mealType, diet = diets, type = type, query = query)
     }
 
-    fun setQuery(query: String) {
-        _queryLiveData.value = query
-    }
-
-    override fun handleError(throwable: Throwable) {
-    }
 }
