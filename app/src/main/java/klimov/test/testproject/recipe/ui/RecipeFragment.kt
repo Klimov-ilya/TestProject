@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
-import klimov.test.testproject.common.ApiStatus
+import klimov.test.testproject.common.network.ApiStatus
 import klimov.test.testproject.common.extensions.showElseGone
 import klimov.test.testproject.common.ui.BaseFragment
 import klimov.test.testproject.databinding.FragmentRecipeBinding

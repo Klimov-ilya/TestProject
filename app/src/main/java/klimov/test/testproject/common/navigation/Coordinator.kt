@@ -7,4 +7,9 @@ open class Coordinator(private val router: Router) {
     open fun navigateTo(screen: FragmentScreen) {
         router.navigateTo(screen)
     }
+
+    open fun newRootScreen(screen: FragmentScreen) {
+        router.newRootScreen(screen)
+    }
+
 }

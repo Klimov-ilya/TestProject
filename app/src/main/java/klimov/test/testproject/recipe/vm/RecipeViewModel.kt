@@ -3,7 +3,7 @@ package klimov.test.testproject.recipe.vm
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import klimov.test.testproject.common.ApiStatus
+import klimov.test.testproject.common.network.ApiStatus
 import klimov.test.testproject.common.vm.BaseViewModel
 import klimov.test.testproject.recipe.api.request.Recipe
 import klimov.test.testproject.recipe.api.request.RecipeRequest
