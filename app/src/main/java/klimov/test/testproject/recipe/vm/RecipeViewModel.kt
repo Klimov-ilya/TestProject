@@ -35,8 +35,6 @@ class RecipeViewModel(
 
         val c = data.hits.subList(0, 10)
 
-        Log.d("==> ", "c: $c")
-
         _cachedData.value = c
         _apiStatus.value = ApiStatus.SuccessStatus(c)
     }

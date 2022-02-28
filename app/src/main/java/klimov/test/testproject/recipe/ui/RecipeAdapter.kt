@@ -4,18 +4,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import klimov.test.testproject.databinding.ItemMainHolderBinding
+import klimov.test.testproject.recipe.api.request.Recipe
 
 class RecipeAdapter(
     private val onItemClick: () -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
-    private val items: MutableList<String> = mutableListOf()
+    private val items: MutableList<Recipe> = mutableListOf()
 
-    fun setData(data: List<String>) {
+    fun setData(data: List<Recipe>) {
         with(items) {
             clear()
             addAll(data)
         }
-        notifyItemChanged(0, data.size)
+        notifyItemRangeChanged(0, data.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -30,8 +31,8 @@ class RecipeAdapter(
     inner class RecipeViewHolder(binding: ItemMainHolderBinding) : RecyclerView.ViewHolder(binding.root) {
         private val nameTV = binding.nameTV
 
-        fun bind(item: String) {
-            nameTV.text = item
+        fun bind(recipe: Recipe) {
+            nameTV.text = recipe.recipe.label
 
             itemView.setOnClickListener { onItemClick() }
         }

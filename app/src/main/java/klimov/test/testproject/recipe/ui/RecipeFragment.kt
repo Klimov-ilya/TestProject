@@ -48,7 +48,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>() {
                     errorTV.text = status.errorMessage
                 }
                 is ApiStatus.SuccessStatus<List<Recipe>> -> {
-                    //adapter.setData(status.data)
+                    adapter.setData(status.data)
                 }
             }
         }
