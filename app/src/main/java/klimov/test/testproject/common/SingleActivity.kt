@@ -32,7 +32,6 @@ class SingleActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onPause() {
         navigationHolder.removeNavigator()
-        navigationHolder.removeNavigator()
         super.onPause()
     }
 

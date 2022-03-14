@@ -16,8 +16,8 @@ class RecipeViewModel(
 ) : BaseViewModel() {
     val apiStatus: LiveData<ApiStatus<List<Recipe>>> get() = _apiStatus
 
-    private val _apiStatus = MutableLiveData<ApiStatus<List<Recipe>>>()
     private val _cachedData = MutableLiveData<List<Recipe>>()
+    private val _apiStatus = MutableLiveData<ApiStatus<List<Recipe>>>()
 
     fun requestToGetRecipeList(recipeBuildEntity: RecipeBuildEntity?) = viewModelCoroutineScope.launch {
         _apiStatus.value = ApiStatus.LoadingStatus(_cachedData.value)
@@ -25,7 +25,7 @@ class RecipeViewModel(
         val request = RecipeRequest(
             appId = "6dbb40a3",
             appKey = "6f22d2218e40e0b74e7020dade143e29",
-            type = "public",
+            type = recipeBuildEntity?.type ?: "public",
             q = recipeBuildEntity?.query.orEmpty(),
             mealType = recipeBuildEntity?.mealType,
             diet = recipeBuildEntity?.diet

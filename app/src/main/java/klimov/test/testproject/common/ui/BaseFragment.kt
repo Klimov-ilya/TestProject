@@ -12,8 +12,6 @@ import klimov.test.testproject.App
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment <T : ViewBinding> : Fragment() {
-    private val router: Router by inject()
-
     private var binding: T? = null
 
     abstract fun getBinding(inflater: LayoutInflater, container: ViewGroup?) : T
@@ -38,10 +36,6 @@ abstract class BaseFragment <T : ViewBinding> : Fragment() {
             initViews(it)
             initViewModels()
         }
-    }
-
-    protected fun navigateTo(screen: FragmentScreen) {
-        router.navigateTo(screen)
     }
 
     override fun onDestroyView() {

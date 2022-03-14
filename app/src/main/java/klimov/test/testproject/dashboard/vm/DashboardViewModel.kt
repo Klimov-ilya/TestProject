@@ -13,6 +13,5 @@ class DashboardViewModel(
     }
 
     override fun handleError(throwable: Throwable) {
-
     }
 }
