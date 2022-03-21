@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/layout/item_recipe_build_item.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/main_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.35260416666666666" />
+        <entry key="dashboard/src/main/res/layout/fragment_dashboard.xml" value="0.18385416666666668" />
+        <entry key="recipe/src/main/res/layout/fragment_recipe.xml" value="0.35260416666666666" />
       </map>
     </option>
   </component>

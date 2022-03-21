@@ -7,3 +7,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TestProject"
 include(":app")
+include(":recipe")
+include(":core")
+include(":dashboard")

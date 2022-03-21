@@ -2,10 +2,10 @@ package klimov.test.testproject.common
 
 import android.os.Bundle
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import klimov.test.core.navigation.Screens
+import klimov.test.core.navigation.coordinator.SingleActivityCoordinator
+import klimov.test.core.ui.BaseActivity
 import klimov.test.testproject.R
-import klimov.test.testproject.common.navigation.SingleActivityCoordinator
-import klimov.test.testproject.common.navigation.screens.Screens
-import klimov.test.testproject.common.ui.BaseActivity
 import klimov.test.testproject.databinding.ActivityMainBinding
 import org.koin.android.ext.android.inject
 
