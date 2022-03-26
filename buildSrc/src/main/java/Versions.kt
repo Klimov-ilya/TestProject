@@ -5,6 +5,7 @@ object Versions {
     const val CONSTRAINT_VERSION = "2.1.3"
     const val LIFECYCLE_LIVEDATA_KTX_VERSION = "2.4.1"
     const val LIFECYCLE_VIEW_MODEL_KTX_VERSION = "2.4.1"
+    const val LIFECYCLE_KTX_VERSION = "2.4.1"
     const val CICERONE_VERSION = "7.1"
     const val LOGGING_INTERCEPTOR_VERSION = "4.9.0"
     const val RETROFIT_VERSION = "2.9.0"

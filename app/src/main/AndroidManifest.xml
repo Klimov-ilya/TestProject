@@ -14,15 +14,23 @@
         android:supportsRtl="true"
         android:name=".App"
         android:theme="@style/Theme.TestProject">
+
         <activity
             android:name=".common.SingleActivity"
-            android:exported="true">
+            android:exported="true" />
+
+        <activity
+            android:name=".common.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

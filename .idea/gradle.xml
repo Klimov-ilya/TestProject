@@ -16,6 +16,8 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/dashboard" />
             <option value="$PROJECT_DIR$/recipe" />
+            <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/welcome" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

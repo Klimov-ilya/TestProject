@@ -50,6 +50,7 @@ dependencies {
 
     api(JetpackLibs.viewModelKtx)
     api(JetpackLibs.livedataKtx)
+    api(JetpackLibs.lifecycle)
 
     api(DiLibs.koin)
 }

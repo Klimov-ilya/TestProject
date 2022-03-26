@@ -39,4 +39,5 @@ dependencies {
     implementation(project(":recipe"))
     implementation(project(":dashboard"))
     implementation(project(":core"))
+    implementation(project(":welcome"))
 }

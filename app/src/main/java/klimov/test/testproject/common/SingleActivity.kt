@@ -6,16 +6,16 @@ import klimov.test.core.navigation.Screens
 import klimov.test.core.navigation.coordinator.SingleActivityCoordinator
 import klimov.test.core.ui.BaseActivity
 import klimov.test.testproject.R
-import klimov.test.testproject.databinding.ActivityMainBinding
+import klimov.test.testproject.databinding.ActivityContainerBinding
 import org.koin.android.ext.android.inject
 
-class SingleActivity : BaseActivity<ActivityMainBinding>() {
+class SingleActivity : BaseActivity<ActivityContainerBinding>() {
     private val navigator = AppNavigator(this, R.id.container)
     private val coordinator: SingleActivityCoordinator by inject()
 
-    override fun getLayoutBinding() = ActivityMainBinding.inflate(layoutInflater)
+    override fun getLayoutBinding() = ActivityContainerBinding.inflate(layoutInflater)
 
-    override fun findViews(binding: ActivityMainBinding) {
+    override fun findViews(binding: ActivityContainerBinding) {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

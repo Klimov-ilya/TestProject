@@ -37,12 +37,6 @@ android {
 }
 
 dependencies {
-    implementation(CoreLibs.core)
-    implementation(CoreLibs.appcompat)
-    implementation(DesignLibs.material)
-    implementation(NetworkLibs.retrofit)
-    implementation(DiLibs.koin)
-
     implementation(project(":core"))
-
+    implementation(project(":ui"))
 }

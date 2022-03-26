@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.31203703703703706" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.24074074074074073" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2564814814814815" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/fragment_recipe_build.xml" value="0.35260416666666666" />
@@ -12,6 +15,12 @@
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.35260416666666666" />
         <entry key="dashboard/src/main/res/layout/fragment_dashboard.xml" value="0.18385416666666668" />
         <entry key="recipe/src/main/res/layout/fragment_recipe.xml" value="0.35260416666666666" />
+        <entry key="ui/src/main/res/layout/button_main.xml" value="0.35260416666666666" />
+        <entry key="ui/src/main/res/layout/button_retry.xml" value="0.35260416666666666" />
+        <entry key="welcome/src/main/res/drawable/background_infromation_step.xml" value="0.298" />
+        <entry key="welcome/src/main/res/layout/fragment_information.xml" value="0.35260416666666666" />
+        <entry key="welcome/src/main/res/layout/fragment_information_step.xml" value="0.19658119658119658" />
+        <entry key="welcome/src/main/res/layout/fragment_splash.xml" value="0.35260416666666666" />
       </map>
     </option>
   </component>

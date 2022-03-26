@@ -16,6 +16,7 @@ object NetworkLibs {
 }
 
 object JetpackLibs {
+    val lifecycle by lazy { "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_KTX_VERSION}" }
     val livedataKtx by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE_LIVEDATA_KTX_VERSION}" }
     val viewModelKtx by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_VIEW_MODEL_KTX_VERSION}" }
 }
