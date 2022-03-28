@@ -5,4 +5,10 @@
         <attr name="android:background" format="integer" />
         <attr name="android:textColor" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ErrorWidget">
+        <attr name="android:text" format="string" />
+        <attr name="errorButtonText" format="string" />
+    </declare-styleable>
+
 </resources>

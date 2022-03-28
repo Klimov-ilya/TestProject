@@ -3,11 +3,14 @@ package klimov.test.recipe.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
 import klimov.test.core.ui.BaseFragment
 import klimov.test.recipe.databinding.FragmentRecipeBuildBinding
 import klimov.test.recipe.entity.DietFormatter
 import klimov.test.recipe.entity.MealFormatter
 import klimov.test.recipe.vm.RecipeBuildViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
@@ -39,11 +42,11 @@ class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
     }
 
     override fun initViewModels() {
-        recipeBuildViewModel.run {
-            mealFormatterList.observe(viewLifecycleOwner) { mealFormatterList ->
+        viewLifecycleOwner.lifecycleScope.launch {
+            recipeBuildViewModel.mealFormatterList.collect { mealFormatterList ->
                 mealAdapter.setData(mealFormatterList)
             }
-            dietFormatterList.observe(viewLifecycleOwner) { dietFormatterList ->
+            recipeBuildViewModel.dietFormatterList.collect { dietFormatterList ->
                 dietAdapter.setData(dietFormatterList)
             }
         }

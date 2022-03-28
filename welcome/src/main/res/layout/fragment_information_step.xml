@@ -4,34 +4,46 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingStart="@dimen/dp_32"
-    android:paddingEnd="@dimen/dp_32"
     android:background="@drawable/background_infromation_step">
 
-    <TextView
-        android:id="@+id/titleTV"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        style="@style/TextStyle.Title"
-        android:gravity="center"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Title" />
+        app:layout_constraintBottom_toTopOf="@+id/continueB">
 
-    <TextView
-        android:id="@+id/textTV"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginBottom="@dimen/dp_16"
-        style="@style/TextStyle.Text"
-        app:layout_constraintTop_toBottomOf="@id/titleTV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/continueB"
-        tools:text="text" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp_32"
+                android:paddingEnd="@dimen/dp_32"
+                style="@style/TextStyle.Title"
+                android:gravity="center"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/textTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp_32"
+                android:paddingEnd="@dimen/dp_32"
+                android:layout_marginTop="@dimen/dp_16"
+                style="@style/TextStyle.Text"
+                tools:text="text" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <klimov.test.ui.buttons.MainButton
         android:id="@+id/continueB"
@@ -40,6 +52,8 @@
         android:layout_marginBottom="@dimen/dp_16"
         android:text="@string/button_continue"
         android:visibility="gone"
+        android:layout_marginStart="@dimen/dp_32"
+        android:layout_marginEnd="@dimen/dp_32"
         android:background="@color/colorPrimary"
         android:textColor="@color/system_white"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,8 +1,6 @@
 package klimov.test.recipe.vm
 
 import android.os.Bundle
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import klimov.test.core.navigation.Screens
 import klimov.test.core.vm.BaseViewModel
 import klimov.test.recipe.entity.Diet
@@ -13,20 +11,22 @@ import klimov.test.recipe.entity.RecipeBuildEntity
 import klimov.test.recipe.entity.RecipeBuildType
 import klimov.test.recipe.navigation.RecipeCoordinator
 import klimov.test.recipe.ui.RecipeFragment.Companion.EXTRA_RECIPE_ENTITY
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class RecipeBuildViewModel(
     private val coordinator: RecipeCoordinator
 ) : BaseViewModel() {
-    private val _queryLiveData = MutableLiveData<String>()
-    private val _mealFormatterList = MutableLiveData(
+    private val _queryLiveData = MutableStateFlow<String?>(null)
+    private val _mealFormatterList = MutableStateFlow(
         MealType.values().map { MealFormatter(it, false) }
     )
-    private val _dietFormatterList = MutableLiveData(
+    private val _dietFormatterList = MutableStateFlow(
         Diet.values().map { DietFormatter(it, false) }
     )
 
-    val mealFormatterList: LiveData<List<MealFormatter>> get() = _mealFormatterList
-    val dietFormatterList: LiveData<List<DietFormatter>> get() = _dietFormatterList
+    val mealFormatterList: StateFlow<List<MealFormatter>> get() = _mealFormatterList
+    val dietFormatterList: StateFlow<List<DietFormatter>> get() = _dietFormatterList
 
     fun setMealData(formatter: MealFormatter) {
         val currentList = _mealFormatterList.value as MutableList
@@ -68,8 +68,8 @@ class RecipeBuildViewModel(
 
     private fun getRecipeBuildEntity(): RecipeBuildEntity {
         val query = _queryLiveData.value.orEmpty()
-        val mealType = _mealFormatterList.value?.filter { it.isChecked }?.map { it.type.value }
-        val diets = _dietFormatterList.value?.filter { it.isChecked }?.map { it.type.value }
+        val mealType = _mealFormatterList.value.filter { it.isChecked }.map { it.type.value }
+        val diets = _dietFormatterList.value.filter { it.isChecked }.map { it.type.value }
 
         // Just only this value yet
         val type = RecipeBuildType.PUBLIC.value
