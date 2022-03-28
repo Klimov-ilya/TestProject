@@ -27,10 +27,7 @@ class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
         container: ViewGroup?
     ) = FragmentRecipeBuildBinding.inflate(inflater, container, false)
 
-    override fun findViews(binding: FragmentRecipeBuildBinding) {
-    }
-
-    override fun initViews(binding: FragmentRecipeBuildBinding) {
+    override fun initViews() {
         binding.mealRV.adapter = mealAdapter
         binding.dietRV.adapter = dietAdapter
         binding.queryET.addTextChangedListener(
@@ -41,12 +38,12 @@ class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
         }
     }
 
-    override fun initViewModels() {
+    override fun initSubscription() {
         viewLifecycleOwner.lifecycleScope.launch {
-            recipeBuildViewModel.mealFormatterList.collect { mealFormatterList ->
+            recipeBuildViewModel.mealFormatterFlow.collect { mealFormatterList ->
                 mealAdapter.setData(mealFormatterList)
             }
-            recipeBuildViewModel.dietFormatterList.collect { dietFormatterList ->
+            recipeBuildViewModel.dietFormatterFlow.collect { dietFormatterList ->
                 dietAdapter.setData(dietFormatterList)
             }
         }

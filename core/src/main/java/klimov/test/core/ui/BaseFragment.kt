@@ -8,35 +8,34 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment <T : ViewBinding> : Fragment() {
-    private var binding: T? = null
+    private var _binding: T? = null
+    protected val binding: T get() = _binding!!
 
     abstract fun getBinding(inflater: LayoutInflater, container: ViewGroup?) : T
 
-    abstract fun findViews(binding: T)
-    abstract fun initViews(binding: T)
-    abstract fun initViewModels()
+    abstract fun initViews()
+    abstract fun initSubscription()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = getBinding(inflater, container)
-        return binding?.root
+        _binding = getBinding(inflater, container)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.let {
-            findViews(it)
-            initViews(it)
-            initViewModels()
+        binding.let {
+            initViews()
+            initSubscription()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding = null
+        _binding = null
     }
 
 }

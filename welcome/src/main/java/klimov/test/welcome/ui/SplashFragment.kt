@@ -6,34 +6,34 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.terrakok.cicerone.Router
+import klimov.test.core.navigation.Screens
 import klimov.test.core.ui.BaseFragment
 import klimov.test.welcome.databinding.FragmentSplashBinding
-import klimov.test.welcome.interactor.WelcomeInteractor
 import org.koin.android.ext.android.inject
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
-    private val interactor: WelcomeInteractor by inject()
+    private val router: Router by inject()
 
     override fun getBinding(inflater: LayoutInflater, container: ViewGroup?) =
         FragmentSplashBinding.inflate(inflater, container, false)
 
-    override fun findViews(binding: FragmentSplashBinding) {
+    override fun initViews() {
     }
 
-    override fun initViews(binding: FragmentSplashBinding) {
-    }
-
-    override fun initViewModels() {
+    override fun initSubscription() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
-            interactor.navigateToInstruction()
-        }, 3000L)
+            router.newRootScreen(Screens.InformationScreen())
+        }, TIMEOUT)
     }
 
     companion object {
+        private const val TIMEOUT = 3000L
+
         fun getInstance() = SplashFragment()
     }
 }

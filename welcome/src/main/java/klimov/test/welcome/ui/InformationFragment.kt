@@ -10,34 +10,24 @@ import klimov.test.welcome.databinding.FragmentInformationBinding
 import klimov.test.welcome.entity.stepResources
 
 class InformationFragment : BaseFragment<FragmentInformationBinding>() {
-    private lateinit var viewPager: ViewPager2
-    private lateinit var progressViewPager: ProgressBar
 
     override fun getBinding(inflater: LayoutInflater, container: ViewGroup?) =
         FragmentInformationBinding.inflate(inflater, container, false)
 
-    override fun findViews(binding: FragmentInformationBinding) {
-        viewPager = binding.pagerVP
-        progressViewPager = binding.progressPB
-    }
+    override fun initViews() {
+        binding.pagerVP.adapter = InformationPagerAdapter(stepResources, requireActivity())
 
-    override fun initViews(binding: FragmentInformationBinding) {
-        viewPager.adapter = InformationPagerAdapter(
-            stepResources,
-            requireActivity()
-        )
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.pagerVP.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 val size = stepResources.size - 1
                 val currentProgress = position / size.toDouble()
-                progressViewPager.progress = (currentProgress * 100).toInt()
+                binding.progressPB.progress = (currentProgress * 100).toInt()
             }
         })
     }
 
-    override fun initViewModels() {
-
+    override fun initSubscription() {
     }
 
     companion object {

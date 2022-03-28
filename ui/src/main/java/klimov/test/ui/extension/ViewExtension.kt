@@ -1,4 +1,4 @@
-package klimov.test.core.extension
+package klimov.test.ui.extension
 
 import android.view.View
 

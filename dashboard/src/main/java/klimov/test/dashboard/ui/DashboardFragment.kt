@@ -15,16 +15,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         container: ViewGroup?
     ) = FragmentDashboardBinding.inflate(inflater, container, false)
 
-    override fun findViews(binding: FragmentDashboardBinding) {
+    override fun initViews() {
+        binding.recipeB.setOnClickListener { dashboardViewModel.navigateToRecipeBuild() }
     }
 
-    override fun initViews(binding: FragmentDashboardBinding) {
-        binding.recipeB.setOnClickListener {
-            dashboardViewModel.navigateToRecipeBuild()
-        }
-    }
-
-    override fun initViewModels() {
+    override fun initSubscription() {
     }
 
     companion object {

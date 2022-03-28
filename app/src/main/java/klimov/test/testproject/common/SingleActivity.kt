@@ -13,10 +13,7 @@ class SingleActivity : BaseActivity<ActivityContainerBinding>() {
     private val navigator = AppNavigator(this, R.id.container)
     private val coordinator: SingleActivityCoordinator by inject()
 
-    override fun getLayoutBinding() = ActivityContainerBinding.inflate(layoutInflater)
-
-    override fun findViews(binding: ActivityContainerBinding) {
-    }
+    override val binding = ActivityContainerBinding.inflate(layoutInflater)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
