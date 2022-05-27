@@ -5,7 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import klimov.test.welcome.entity.InformationResources
 import klimov.test.welcome.ui.InformationStepFragment
 
-class InformationPagerAdapter(
+internal class InformationPagerAdapter(
     private val resources: List<InformationResources>,
     fa: FragmentActivity
 ) : FragmentStateAdapter(fa) {

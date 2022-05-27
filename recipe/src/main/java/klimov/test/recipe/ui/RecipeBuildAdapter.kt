@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import klimov.test.recipe.databinding.ItemRecipeBuildItemBinding
 import klimov.test.recipe.entity.RecipeBuildFormatter
 
-class RecipeBuildAdapter<T : RecipeBuildFormatter>(
+internal class RecipeBuildAdapter<T : RecipeBuildFormatter>(
     val onItemClick: (T) -> Unit
 ) : RecyclerView.Adapter<RecipeBuildAdapter<T>.RecipeBuildViewHolder>() {
     private val list = mutableListOf<T>()

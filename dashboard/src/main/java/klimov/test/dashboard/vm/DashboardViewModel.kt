@@ -4,7 +4,7 @@ import klimov.test.core.navigation.Screens.RecipeBuildScreen
 import klimov.test.core.vm.BaseViewModel
 import klimov.test.dashboard.navigation.DashboardCoordinator
 
-class DashboardViewModel(
+internal class DashboardViewModel(
     private val coordinator: DashboardCoordinator
 ) : BaseViewModel() {
 

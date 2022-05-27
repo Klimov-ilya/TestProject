@@ -3,11 +3,11 @@ package klimov.test.recipe.entity
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-enum class RecipeBuildType(val value: String) {
+internal enum class RecipeBuildType(val value: String) {
     PUBLIC("public")
 }
 
-enum class Diet(val value: String) {
+internal enum class Diet(val value: String) {
     BALANCED("balanced"),
     HIGH_FIBER("high-fiber"),
     HIGH_PROTEIN("high-protein"),
@@ -16,19 +16,19 @@ enum class Diet(val value: String) {
     LOW_SODIUM("low-sodium")
 }
 
-enum class MealType(val value: String) {
+internal enum class MealType(val value: String) {
     DINNER("dinner"),
     LUNCH("lunch"),
     SNACK("snack"),
     TEATIME("teatime")
 }
 
-interface RecipeBuildFormatter {
+internal interface RecipeBuildFormatter {
     fun getText(): String
     fun getCheckedValue(): Boolean
 }
 
-data class MealFormatter(
+internal data class MealFormatter(
     val type: MealType,
     val isChecked: Boolean
 ) : RecipeBuildFormatter {
@@ -36,7 +36,7 @@ data class MealFormatter(
     override fun getCheckedValue() = isChecked
 }
 
-data class DietFormatter(
+internal data class DietFormatter(
     val type: Diet,
     val isChecked: Boolean
 ) : RecipeBuildFormatter {
@@ -45,7 +45,7 @@ data class DietFormatter(
 }
 
 @Parcelize
-data class RecipeBuildEntity(
+internal data class RecipeBuildEntity(
     val query: String,
     val type: String,
     val mealType: List<String>? = null,

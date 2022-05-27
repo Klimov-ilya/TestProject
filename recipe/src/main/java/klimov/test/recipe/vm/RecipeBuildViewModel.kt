@@ -14,7 +14,7 @@ import klimov.test.recipe.ui.RecipeFragment.Companion.EXTRA_RECIPE_ENTITY
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class RecipeBuildViewModel(
+internal class RecipeBuildViewModel(
     private val coordinator: RecipeCoordinator
 ) : BaseViewModel() {
     private val _queryFlow = MutableStateFlow<String?>(null)

@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class RecipeViewModel(
+internal class RecipeViewModel(
     private val recipeRepository: RecipeRepository,
 ) : BaseViewModel() {
     val dataStatus: StateFlow<DataStatus<List<Recipe>>> get() = _apiStatus
