@@ -8,6 +8,12 @@ object DesignLibs {
     val constraint by lazy { "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_VERSION}" }
 }
 
+object ComposeLibs {
+    val ui by lazy { "androidx.compose.ui:ui:${Versions.COMPOSE_VERSION}" }
+    val material by lazy { "androidx.compose.material:material:${Versions.COMPOSE_VERSION}" }
+    val uiTooling by lazy { "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE_VERSION}" }
+}
+
 object NetworkLibs {
     val retrofit by lazy { "com.squareup.retrofit2:retrofit:${Versions.RETROFIT_VERSION}" }
     val moshi by lazy { "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI_VERSION}" }

@@ -1,17 +1,20 @@
+# Android studio projects files
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-/buildSrc/.gradle
-/buildSrc/build
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*ipr
+*iws
+.idea/
 local.properties
+
+# Gradle
+.gradle/
+
+#Generated files
+build/
+
+#/buildSrc/.gradle
+#/buildSrc/build
+#.DS_Store
+#/build
+#/captures
+#.externalNativeBuild
+#.cxx

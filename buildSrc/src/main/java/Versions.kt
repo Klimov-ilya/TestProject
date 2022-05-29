@@ -1,4 +1,5 @@
 object Versions {
+    const val COMPOSE_VERSION = "1.1.1"
     const val CORE_VERSION = "1.7.0"
     const val APPCOMPAT_VERSION = "1.4.1"
     const val MATERIAL_VERSION = "1.5.0"

@@ -25,14 +25,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = ConfigData.JavaVersion
+        targetCompatibility = ConfigData.JavaVersion
     }
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
     buildFeatures {
-        viewBinding = ConfigData.viewBinding
+        viewBinding = ConfigData.isEnableViewBinding
     }
 }
 

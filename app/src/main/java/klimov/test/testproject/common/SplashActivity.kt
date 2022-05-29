@@ -13,7 +13,9 @@ class SplashActivity : BaseActivity<ActivityContainerBinding>() {
     private val navigator = AppNavigator(this, R.id.container)
     private val coordinator: SingleActivityCoordinator by inject()
 
-    override val binding = ActivityContainerBinding.inflate(layoutInflater)
+    override val binding by lazy {
+        ActivityContainerBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

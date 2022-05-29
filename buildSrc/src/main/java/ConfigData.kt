@@ -7,7 +7,10 @@ object ConfigData {
     const val targetSdkVersion = 31
     const val versionCode = 1
     const val versionName = "1.0"
-    const val jvmTarget = "1.8"
+    const val jvmTarget = "11"
 
-    const val viewBinding = true
+    val JavaVersion = org.gradle.api.JavaVersion.VERSION_11
+
+    const val isEnableViewBinding = true
+    const val isEnableCompose = true
 }
