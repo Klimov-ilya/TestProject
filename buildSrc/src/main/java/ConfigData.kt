@@ -9,8 +9,10 @@ object ConfigData {
     const val versionName = "1.0"
     const val jvmTarget = "11"
 
+    const val kotlinCompilerExtensionVersion = "1.1.1"
+
     val JavaVersion = org.gradle.api.JavaVersion.VERSION_11
 
     const val isEnableViewBinding = true
-    const val isEnableCompose = true
+    const val isEnableCompose = false
 }

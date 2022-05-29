@@ -30,8 +30,12 @@ android {
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = ConfigData.kotlinCompilerExtensionVersion
+    }
     buildFeatures {
         viewBinding = ConfigData.isEnableViewBinding
+        compose = ConfigData.isEnableCompose
     }
 }
 

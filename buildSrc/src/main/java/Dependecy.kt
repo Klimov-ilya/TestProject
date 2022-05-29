@@ -9,9 +9,11 @@ object DesignLibs {
 }
 
 object ComposeLibs {
+    val activityCompose by lazy { "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY_VERSION}" }
     val ui by lazy { "androidx.compose.ui:ui:${Versions.COMPOSE_VERSION}" }
     val material by lazy { "androidx.compose.material:material:${Versions.COMPOSE_VERSION}" }
-    val uiTooling by lazy { "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE_VERSION}" }
+    val uiToolingPreview by lazy { "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE_VERSION}" }
+    val uiTooling by lazy { "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_VERSION}" }
 }
 
 object NetworkLibs {
