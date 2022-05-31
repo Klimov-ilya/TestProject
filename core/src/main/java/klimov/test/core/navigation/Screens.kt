@@ -28,6 +28,11 @@ object Screens : KoinComponent {
         return@FragmentScreen fragment
     }
 
+    fun RecipeFavouriteScreen() = FragmentScreen(RECIPE_FAVOURITE_SCREEN_QUALIFIER.value) {
+        val fragment: Fragment by inject(qualifier = RECIPE_FAVOURITE_SCREEN_QUALIFIER)
+        return@FragmentScreen fragment
+    }
+
     fun DashboardScreen() = FragmentScreen(DASHBOARD_SCREEN_QUALIFIER.value) {
         val fragment: Fragment by inject(qualifier = DASHBOARD_SCREEN_QUALIFIER)
         return@FragmentScreen fragment

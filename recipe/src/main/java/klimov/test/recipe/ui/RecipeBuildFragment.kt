@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
+internal class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
     private val recipeBuildViewModel: RecipeBuildViewModel by viewModel()
     private val mealAdapter = RecipeBuildAdapter<MealFormatter> { formatter ->
         recipeBuildViewModel.setMealData(formatter)
@@ -47,9 +47,5 @@ class RecipeBuildFragment : BaseFragment<FragmentRecipeBuildBinding>() {
                 dietAdapter.setData(dietFormatterList)
             }
         }
-    }
-
-    companion object {
-        fun newInstance() = RecipeBuildFragment()
     }
 }

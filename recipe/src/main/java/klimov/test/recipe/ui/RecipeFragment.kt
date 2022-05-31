@@ -2,23 +2,21 @@ package klimov.test.recipe.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import klimov.test.ui.extension.showElseGone
 import klimov.test.core.network.DataStatus
 import klimov.test.core.ui.BaseFragment
-import klimov.test.recipe.api.model.Recipe
 import klimov.test.recipe.databinding.FragmentRecipeBinding
+import klimov.test.recipe.entity.Recipe
 import klimov.test.recipe.entity.RecipeBuildEntity
 import klimov.test.recipe.vm.RecipeViewModel
-import klimov.test.ui.widgets.ErrorWidget
+import klimov.test.ui.extension.showElseGone
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RecipeFragment : BaseFragment<FragmentRecipeBinding>() {
+internal class RecipeFragment : BaseFragment<FragmentRecipeBinding>() {
     private val recipeViewModel: RecipeViewModel by viewModel()
     private val adapter: RecipeAdapter by lazy { RecipeAdapter(itemClick) }
 

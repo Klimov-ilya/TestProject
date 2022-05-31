@@ -3,10 +3,10 @@ package klimov.test.recipe.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import klimov.test.recipe.api.model.Recipe
 import klimov.test.recipe.databinding.ItemMainHolderBinding
+import klimov.test.recipe.entity.Recipe
 
-class RecipeAdapter(
+internal class RecipeAdapter(
     private val onItemClick: () -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     private val items: MutableList<Recipe> = mutableListOf()
@@ -32,7 +32,7 @@ class RecipeAdapter(
         private val nameTV = binding.nameTV
 
         fun bind(recipe: Recipe) {
-            nameTV.text = recipe.recipe.label
+            nameTV.text = recipe.label
 
             itemView.setOnClickListener { onItemClick() }
         }

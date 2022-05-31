@@ -1,6 +1,8 @@
 package klimov.test.recipe.api.model
 
-data class RecipeRequest(
+import klimov.test.recipe.entity.Recipe
+
+internal data class RecipeRequest(
     val appId: String,
     val appKey: String,
     val type: String,
@@ -9,29 +11,39 @@ data class RecipeRequest(
     val diet: List<String>? = null
 )
 
-data class RecipeResponse(
+internal data class RecipeObjectResponse(
     val from: Int,
     val to: Int,
     val count: Int,
-    val _links: RecipeLinks,
-    val hits: List<Recipe>
+    val _links: RecipeLinksResponse,
+    val hits: List<RecipeResponse>
 )
 
-data class RecipeLinks(
-    val self: RecipeLinksItem,
-    val next: RecipeLinksItem
-)
+internal data class RecipeLinksResponse(val self: RecipeLinksItemResponse, val next: RecipeLinksItemResponse)
 
-data class RecipeLinksItem(
-    val href: String,
-    val title: String
-)
+internal data class RecipeLinksItemResponse(val href: String, val title: String)
 
-data class Recipe(
-    val recipe: RecipeItem
-)
+internal data class RecipeResponse(val recipe: RecipeItemResponse) {
+    companion object {
+        fun toRecipe(recipe: RecipeResponse) = Recipe(
+            label = recipe.recipe.label,
+            image = recipe.recipe.image,
+            url = recipe.recipe.url,
+            totalWeight = recipe.recipe.totalWeight,
+            cuisineType = recipe.recipe.cuisineType,
+            mealType = recipe.recipe.mealType,
+            dishType = recipe.recipe.dishType,
+            dietLabels = recipe.recipe.dietLabels,
+            healthLabels = recipe.recipe.healthLabels,
+            cautions = recipe.recipe.cautions,
+            ingredientLines = recipe.recipe.ingredientLines,
+            calories = recipe.recipe.calories,
+            glycemicIndex = recipe.recipe.glycemicIndex
+        )
+    }
+}
 
-data class RecipeItem(
+internal data class RecipeItemResponse(
     val uri: String,
     val label: String,
     val image: String,
@@ -50,5 +62,5 @@ data class RecipeItem(
     val totalWeight: Double,
     val cuisineType: List<String>,
     val mealType: List<String>,
-    val dishType: List<String>,
+    val dishType: List<String>
 )

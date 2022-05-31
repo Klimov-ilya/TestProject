@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,4 +58,8 @@ dependencies {
     api(JetpackLibs.lifecycle)
 
     api(DiLibs.koin)
+
+    kapt(JetpackLibs.roomCompilerKapt)
+    api(JetpackLibs.roomKtx)
+    api(JetpackLibs.roomRuntime)
 }

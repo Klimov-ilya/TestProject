@@ -2,8 +2,9 @@ package klimov.test.recipe.vm
 
 import klimov.test.core.network.DataStatus
 import klimov.test.core.vm.BaseViewModel
-import klimov.test.recipe.api.model.Recipe
 import klimov.test.recipe.api.model.RecipeRequest
+import klimov.test.recipe.api.model.RecipeResponse
+import klimov.test.recipe.entity.Recipe
 import klimov.test.recipe.entity.RecipeBuildEntity
 import klimov.test.recipe.repository.RecipeRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,16 +38,18 @@ internal class RecipeViewModel(
             diet = currentEntity?.diet
         )
 
-        recipeRepository.requestToGetRecipeList(request)
+        recipeRepository
+            .requestToGetRecipeList(request)
             .collect { response ->
-            val c = response.hits.subList(0, 10)
+                val result = response.hits.subList(0, 10).map { RecipeResponse.toRecipe(it) }
 
-            _cachedData.value = c
-            _apiStatus.value = DataStatus.SuccessStatus(c)
-        }
+                _cachedData.value = result
+                _apiStatus.value = DataStatus.SuccessStatus(result)
+            }
     }
 
     override fun handleError(throwable: Throwable) {
-        _apiStatus.value = DataStatus.ErrorStatus(_cachedData.value, errorMessage = throwable.message)
+        _apiStatus.value =
+            DataStatus.ErrorStatus(_cachedData.value, errorMessage = throwable.message)
     }
 }
